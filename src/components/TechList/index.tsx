@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const TechList: React.FC = () => {
   const [techs, setTechs] = useState<string[]>([]);
   const [newTech, setNewTech] = useState('');
+
+  useEffect(() => {
+    const techsStorage = localStorage.getItem('techs');
+
+    if (techsStorage) {
+      setTechs(JSON.parse(techsStorage));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('techs', JSON.stringify(techs));
+  }, [techs]);
 
   function handleAddTech() {
     setTechs([...techs, newTech]);
