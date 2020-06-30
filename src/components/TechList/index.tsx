@@ -17,13 +17,17 @@ const TechList: React.FC = () => {
         ))}
       </ul>
 
-      <label htmlFor="tech">Tech</label>
-      <input
-        id="tech"
-        value={newTech}
-        onChange={(e) => setNewTech(e.target.value)}
-      />
-      <button onClick={handleAddTech}>Adicionar</button>
+      <label htmlFor="tech">
+        Tech
+        <input
+          id="tech"
+          value={newTech}
+          onChange={(e) => setNewTech(e.target.value)}
+        />
+      </label>
+      <button type="button" onClick={handleAddTech}>
+        Adicionar
+      </button>
     </form>
   );
 };
